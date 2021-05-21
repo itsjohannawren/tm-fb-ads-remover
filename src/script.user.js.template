@@ -1,0 +1,47 @@
+// ==UserScript==
+// @name         {{&tampermonkey.name}}
+// @version      {{&package.version}}
+// @description  {{&package.description}}
+// @author       {{&package.author.name}}
+// @namespace    {{&package.homepage}}
+// @homepage     {{&package.homepage}}
+// @icon         {{&tampermonkey.icon16}}
+// @icon64       {{&tampermonkey.icon64}}
+
+// @updateURL    {{&tampermonkey.update}}
+// @downloadURL  {{&tampermonkey.download}}
+// @supportURL   {{&package.bugs}}
+
+// @run-at       {{&tampermonkey.run_at}}
+// @noframes
+
+{{#tampermonkey.grants}}
+// @grant        {{&.}}
+{{/tampermonkey.grants}}
+{{^tampermonkey.grants}}
+// @grant        none
+{{/tampermonkey.grants}}
+
+{{#tampermonkey.includes}}
+{{#tampermonkey.include_below}}
+// @include      {{&.}}
+// @include      {{&.}}/*
+// @include      {{&.}}?*
+{{/tampermonkey.include_below}}
+{{^tampermonkey.include_below}}
+// @include      {{&.}}
+{{/tampermonkey.include_below}}
+{{/tampermonkey.includes}}
+{{#tampermonkey.excludes}}
+{{#tampermonkey.exclude_below}}
+// @exclude      {{&.}}
+// @exclude      {{&.}}/*
+// @exclude      {{&.}}?*
+{{/tampermonkey.exclude_below}}
+{{^tampermonkey.exclude_below}}
+// @exclude      {{&.}}
+{{/tampermonkey.exclude_below}}
+{{/tampermonkey.excludes}}
+// ==/UserScript==
+
+{{&code}}

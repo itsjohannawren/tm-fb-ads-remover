@@ -1,0 +1,179 @@
+env:
+  # browser global variables.
+  browser: true
+  # Node.js global variables and Node.js scoping.
+  node: false
+  # CommonJS global variables and CommonJS scoping (use this for browser-only code that uses Browserify/WebPack).
+  commonjs: false
+  # Globals common to both Node.js and Browser.
+  shared-node-browser: true
+  # enable all ECMAScript 6 features except for modules (this automatically sets the ecmaVersion parser option to 6).
+  es6: true
+  # adds all ECMAScript 2017 globals and automatically sets the ecmaVersion parser option to 8.
+  es2017: false
+  # adds all ECMAScript 2020 globals and automatically sets the ecmaVersion parser option to 11.
+  es2020: false
+  # web workers global variables.
+  worker: false
+  # defines require() and define() as global variables as per the amd spec.
+  amd: false
+  # adds all of the Mocha testing global variables.
+  mocha: false
+  # adds all of the Jasmine testing global variables for version 1.3 and 2.0.
+  jasmine: false
+  # Jest global variables.
+  jest: false
+  # PhantomJS global variables.
+  phantomjs: false
+  # Protractor global variables.
+  protractor: false
+  # QUnit global variables.
+  qunit: false
+  # jQuery global variables.
+  jquery: false
+  # Prototype.js global variables.
+  prototypejs: false
+  # ShellJS global variables.
+  shelljs: false
+  # Meteor global variables.
+  meteor: false
+  # MongoDB global variables.
+  mongo: false
+  # AppleScript global variables.
+  applescript: false
+  # Java 8 Nashorn global variables.
+  nashorn: false
+  # Service Worker global variables.
+  serviceworker: false
+  # Atom test helper globals.
+  atomtest: false
+  # Ember test helper globals.
+  embertest: false
+  # WebExtensions globals.
+  webextensions: false
+  # GreaseMonkey globals.
+  greasemonkey: true
+
+extends: eslint:recommended
+
+parserOptions:
+  sourceType: script
+  ecmaVersion: 11
+  ecmaFeatures:
+    globalReturn: false
+    impliedStrict: true
+
+reportUnusedDisableDirectives: true
+noInlineConfig: false
+
+#globals:
+#  PACKAGE: readonly
+#  _: readonly
+#  HJSON: readonly
+#  #<VAR_NAME>: <writable|readonly|off>
+
+rules:
+  #<RULE>:
+  #  - <off|warn|error>
+  #  [- <VALUE>]
+  indent:
+    - error
+    - tab
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - double
+  semi:
+    - error
+    - always
+  camelcase:
+    - warn
+  comma-dangle:
+    - error
+    - never
+  for-direction:
+    - warn
+  func-call-spacing:
+    - off
+  function-call-argument-newline:
+    - off
+  function-paren-newline:
+    - off
+  multiline-ternary:
+    - off
+  prefer-numeric-literals:
+    - warn
+  prefer-regex-literals:
+    - warn
+  require-jsdoc:
+    - warn
+
+  no-bitwise:
+    - off
+  no-cond-assign:
+    - error
+    - always
+  no-console:
+    - off
+  no-constant-condition:
+    - error
+    - checkLoops: false
+  no-continue:
+    - off
+  no-control-regex:
+    - warn
+  no-else-return:
+    - off
+  no-ex-assign:
+    - warn
+  no-inline-comments:
+    - warn
+  no-labels:
+    - off
+  no-nested-ternary:
+    - warn
+  no-octal:
+    - off
+  no-octal-escape:
+    - warn
+  no-plusplus:
+    - off
+  no-process-env:
+    - warn
+  no-process-exit:
+    - warn
+  no-sync:
+    - warn
+  no-ternary:
+    - warn
+  no-unused-vars:
+    - warn
+  no-var:
+    - error
+
+overrides:
+  - files:
+      - 'build/*'
+    env:
+      browser: false
+      node: true
+      es6: false
+      es2020: true
+      greasemonkey: false
+    rules:
+      no-sync:
+        - off
+
+  - files:
+      - spec.js
+      - '*.spec.js'
+    env:
+      browser: true
+      node: true
+      es6: false
+      es2020: true
+      greasemonkey: true
+      mocha: true
+    #rules:

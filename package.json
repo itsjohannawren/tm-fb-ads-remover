@@ -1,0 +1,63 @@
+{
+	"name": "tm-fb-ads-remover",
+	"description": "Removes advertisements from Facebook feeds",
+	"version": "1.0.0",
+	"deprecated": false,
+	"author": {
+		"name": "Johanna Walter",
+		"email": "johanna@walter.fm",
+		"url": "https://github.com/itsjohannawren"
+	},
+	"contributors": [],
+	"homepage": "https://github.com/itsjohannawren/tm-fb-ads-remover",
+	"bugs": "https://github.com/itsjohannawren/tm-fb-ads-remover/issues",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/itsjohannawren/tm-fb-ads-remover.git"
+	},
+	"license": "MIT",
+	"keywords": [
+		"tampermonkey",
+		"greasemonkey",
+		"userscript",
+		"facebook",
+		"fb",
+		"ads",
+		"advertisements",
+		"remover"
+	],
+	"main": "dist/script.user.js",
+	"scripts": {
+		"unit": "mocha test/spec.js",
+		"test": "npm run unit",
+		"lint": "eslint .",
+		"lintfix": "eslint --fix .",
+		"build": "node build/build.js"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "7.*",
+		"husky": "4.*",
+		"mocha": "8.*",
+		"mustache": "4.*"
+	},
+	"engines": {
+		"node": ">= 10.0.0",
+		"npm": ">= 6.0.0"
+	},
+	"tampermonkey": {
+		"name": "Facebook Advertisement Remover",
+		"icon16": "https://raw.githubusercontent.com/itsjohannawren/tm-fb-ads-remover/stable/assets/icon16.png",
+		"icon64": "https://raw.githubusercontent.com/itsjohannawren/tm-fb-ads-remover/stable/assets/icon64.png",
+		"update": "https://raw.githubusercontent.com/itsjohannawren/tm-fb-ads-remover/stable/dist/script.user.js",
+		"download": "https://raw.githubusercontent.com/itsjohannawren/tm-fb-ads-remover/stable/dist/script.user.js",
+		"run_at": "document-body",
+		"grant": [],
+		"include_below": false,
+		"includes": [
+			"https://www.facebook.com/*"
+		],
+		"exclude_below": true,
+		"excludes": []
+	}
+}

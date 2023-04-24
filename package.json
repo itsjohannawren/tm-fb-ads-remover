@@ -37,7 +37,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"eslint": "7.*",
-		"husky": "4.*",
+		"husky": "8.*",
 		"mocha": "8.*",
 		"mustache": "4.*"
 	},
